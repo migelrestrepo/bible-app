@@ -1,0 +1,224 @@
+/*Holy Bible Recovery Version
+ *Stylesheet-Version 1.0
+ *HI-resolution version
+ */
+body {
+	font: 100% sans-serif;
+  line-height: 120%;
+  color: #221f1e;
+  background-color: #fff;
+}
+hr {
+	height: 0;
+  margin: 1.25rem auto;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #ddd;
+  border-left: 0;
+}
+/* Bible Index page */
+.rcv-index {
+  margin: 1em;
+  text-align: center;
+}
+.rcv-index img, .rcv-introduction img {
+    display: block;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 2em;
+}
+h1.Holy-Bible {
+  font: bold 188% 'Palatino', serif;
+  color: #221f1e;
+  text-align: center;
+  margin: 0.75em 0.5em 0 0.5em;
+}
+h2.Recovery-Version {
+  font: italic normal 120% 'Palatino', serif;
+  color: #444;
+  text-align: center;
+  line-height: 150%;
+  margin: 0.125em 0.5em;
+}
+h2.Recovery-Version span {
+  font: normal normal 80% sans-serif;
+  display: block;
+  color: #777;
+}
+.ot-links, .nt-links {
+  margin: 1em;
+  text-align: center;
+}
+
+/* Chapter 1 pages */
+.book-title {
+  margin: 1.875em 0 0.313em;
+  text-align: center;
+  font: bold 150% 'Palatino', serif;
+}
+.chapter-links {
+  margin: 0.125em 0;
+  text-align: center;
+}
+.chapter-links h2 {
+  font: bold 105% 'Palatino', serif;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+}
+
+/* rest of chapter pages */
+.chapter-title {
+	margin: 1.875em 0 0.313em;
+	text-align: center;
+  font: bold 130% 'Palatino', serif;
+}
+.verse-links {
+	margin: 0.125em 0;
+	text-align: center;
+}
+.verse {
+	margin: 0.125em 0.5em 0.75em;
+	text-align: left;
+  line-height: 140%;
+  font: normal 137.5% 'Palatino', serif;
+}
+.verse b {
+  margin-right: 0.75em;
+}
+.bottom-copyright {
+  margin: 1.25em 0 0.625em;
+	font-size: 85%;
+	color: #777;
+	text-align: center;
+}
+.prevnext {
+	font-weight: normal;
+	text-align: center;
+  line-height: 120%;
+  margin: 1.25em 0.125em 0.625em;
+}
+
+/* text link colors */
+a[href] {
+  text-decoration: none;
+  color: #c70f15;
+  font-weight: 600;
+}
+a[href]:hover, a[href]:focus {
+  text-decoration: underline;
+}
+.rcv-nav {
+  padding: 1rem;
+  text-align: center;
+}
+.rcv-nav a {
+  display: inline-block;
+  padding: 0.375em 0.75em;
+  border-radius: 4px;
+  margin: 0.25em 0.125em; 
+  color: #c70f15;
+  font-weight: normal;
+  text-decoration: none;
+  background-color: #ddd;
+  border: 1px solid #ccc; 
+  line-height: 100%;
+}
+.rcv-nav a:hover {
+  text-decoration: none;
+  background-color: #ccc;
+  border-color: #999;
+}
+.rcv-nav .active {
+  color: #777;
+  background-color: #ccc;
+  border-color: #999;
+  cursor: default;
+}
+/* rcv index, chapter, prevnext link styles */
+.ot-links a, .nt-links a, .chapter-links a, .prevnext a {
+  display: inline-block;
+  padding: 0.375em 0.5em;
+  border-radius: 4px;
+  margin: 0.25em 0.125em; 
+  color: #533404;
+  font-weight: normal;
+  text-decoration: none;
+  background-color: #eddec7;
+  border: 1px solid #d2ad72;
+}
+.ot-links a:hover, .ot-links a:focus, 
+.nt-links a:hover, .nt-links a:focus, 
+.chapter-links a:hover, .chapter-links a:focus,
+.prevnext a:hover, .prevnext a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #d2ad72;
+  border: 1px solid #a58653;
+} 
+/* chapter links styles */
+.chapter-links a {
+  width: 1.75em;
+  margin: 0.125em 0;
+}
+/*prev next links styles */
+.prevnext a span {
+  font-size: 110%;
+}
+
+/* verse links styles */
+.verse-links a {
+  display: inline-block;
+  width: 1.75em;
+  padding: 0.125em 0.25em;
+  margin: 0.125em;
+  border-radius: 4px;
+  font-weight: normal;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+.verse-links a:hover, .verse-links a:focus {
+  text-decoration: none;
+  background-color: #ddd;
+  border-color: #aaa;
+}
+
+/* RcV Introduction styles */
+.rcv-introduction {
+  font-family: 'Palatino', serif;
+  max-width: 73.125rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.rcv-introduction p {
+  text-align: justify;
+  font-size: 1.25rem;
+  line-height: 135%;
+}
+.rcv-introduction .intro {
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.rcv-introduction .brief-explanation {
+  margin: 0 1.75rem;
+  padding: 1rem 1.5rem;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+.brief-explanation h3 {
+  font-size: 1.25rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.rcv-introduction .author {
+  text-align: right;
+}
+.rcv-introduction .author p {
+  text-align: left;
+  margin-right: 1.5rem;
+  font-size: 1.125rem;
+  color: #444;
+  display: inline-block;
+}

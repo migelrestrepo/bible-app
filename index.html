@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblia Versión Recobro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <button id="menu-toggle" class="menu-btn" type="button">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            
+            <div class="current-reference">
+                <span id="current-book-header">Biblia Versión Recobro</span>
+                <span id="current-chapter-header"></span>
+            </div>
+            <div class="header-actions">
+                <button id="home-btn" class="header-btn" title="Inicio" type="button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12l9-9 9 9"></path>
+                        <path d="M9 21V9h6v12"></path>
+                    </svg>
+                </button>
+                <button id="search-btn" class="header-btn" type="button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+                <button id="settings-btn" class="header-btn" type="button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1m16.5-3.5L19 7l-1.5-1.5M5 17l-1.5-1.5L5 14l1.5 1.5"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>La Biblia</h2>
+            <button id="close-sidebar" class="close-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="testament-sections">
+            <div class="testament-section">
+                <h3 class="testament-title">Antiguo Testamento</h3>
+                <div id="old-testament-books" class="book-list"></div>
+            </div>
+            <div class="testament-section">
+                <h3 class="testament-title">Nuevo Testamento</h3>
+                <div id="new-testament-books" class="book-list"></div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav hidden">
+            <button id="prev-chapter" class="nav-btn" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"/>
+                </svg>
+            </button>
+            <select id="chapter-select" class="chapter-select" disabled></select>
+            <button id="next-chapter" class="nav-btn" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="welcome-screen">
+            <div class="welcome-content">
+                <h1>Bienvenido a la Biblia</h1>
+                <p class="welcome-subtitle">Versión Recobro</p>
+                <p class="welcome-description">Explora las Escrituras con una experiencia de lectura limpia y enfocada.</p>
+                <button id="get-started-btn" class="primary-btn">Comenzar a Leer</button>
+            </div>
+            <!-- Verse of the Day Section -->
+            <section class="vod-section" aria-labelledby="vod-title">
+                <div class="vod-card" id="vod-card" role="button" tabindex="0">
+                    <div class="vod-header">
+                        <h2 id="vod-title">Versículo del día</h2>
+                        <span class="vod-date" id="vod-date"></span>
+                    </div>
+                    <div class="vod-content">
+                        <div class="vod-ref" id="vod-ref">—</div>
+                        <blockquote class="vod-text" id="vod-text">—</blockquote>
+                    </div>
+                    <div class="vod-actions">
+                        <button id="vod-read-btn" class="secondary-btn" type="button">Leer ahora</button>
+                    </div>
+                </div>
+            </section>
+            <!-- Recommended Books Section -->
+            <section class="recommended-section">
+                <div class="recommended-header">
+                    <h2>Libros recomendados</h2>
+                    <p class="recommended-subtitle">Empieza por algunos pasajes clave</p>
+                </div>
+                <div id="recommended-list" class="recommended-grid"></div>
+            </section>
+
+            <!-- Reading Plans Section -->
+            <section class="plans-section" aria-labelledby="plans-title">
+                <div class="plans-header">
+                    <h2 id="plans-title">Planes de lectura</h2>
+                    <p class="plans-subtitle">Empieza un plan y sigue tu progreso</p>
+                </div>
+                <div id="plans-home-list" class="plans-grid"></div>
+            </section>
+        </div>
+
+        <!-- Reading Plan Panel -->
+        <section id="plans-panel" class="plans-panel hidden" aria-live="polite">
+            <header class="plans-panel-header">
+                <button id="plans-back-btn" class="secondary-btn" type="button" aria-label="Volver">← Volver</button>
+                <h3 id="plans-panel-title">Plan</h3>
+            </header>
+            <div class="plans-panel-body">
+                <p class="plans-panel-date" id="plans-panel-date"></p>
+                <div id="plans-panel-status" class="plans-panel-status"></div>
+                <div class="plans-readings">
+                    <h4>Lectura de hoy</h4>
+                    <ul id="plans-reading-list" class="plans-reading-list"></ul>
+                </div>
+                <div class="plans-actions">
+                    <button id="plan-start-btn" class="primary-btn" type="button">Iniciar plan</button>
+                    <button id="plan-complete-btn" class="secondary-btn" type="button">Marcar día como completado</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Area -->
+        <div id="content-area" class="content-area hidden">
+            <div class="chapter-header">
+                <h1 id="chapter-title"></h1>
+                <audio id="audio-player" class="hidden"></audio>
+                <div id="chapter-player" class="audio-player">
+                    <div class="player-top">
+                        <span id="player-current" class="player-time">0:00</span>
+                        <input id="player-progress" class="player-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Progreso">
+                        <span id="player-duration" class="player-time">0:00</span>
+                        <button id="player-speed" class="player-speed" type="button" title="Velocidad">1x</button>
+                    </div>
+                    <div class="player-controls">
+                        <button id="player-prev" class="player-btn small" type="button" title="Capítulo anterior">⟨</button>
+                        <button id="player-rew" class="player-btn med" type="button" title="Retroceder 30s">↺ 30</button>
+                        <button id="player-play" class="player-btn play" type="button" title="Reproducir">▶</button>
+                        <button id="player-fwd" class="player-btn med" type="button" title="Avanzar 30s">30 ↻</button>
+                        <button id="player-next" class="player-btn small" type="button" title="Capítulo siguiente">⟩</button>
+                    </div>
+                </div>
+            </div>
+            <div id="chapter-content" class="chapter-content"></div>
+            <!-- Verse Fixed Navigation -->
+            <button id="verse-nav-prev" class="verse-nav-btn verse-nav-prev" type="button" aria-label="Versículo anterior">❮</button>
+            <button id="verse-nav-next" class="verse-nav-btn verse-nav-next" type="button" aria-label="Versículo siguiente">❯</button>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="loading-screen hidden">
+            <div class="loading-spinner"></div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div id="bottom-navigation" class="bottom-nav hidden">
+        <div class="bottom-nav-container">
+            <button id="bottom-prev-chapter" class="bottom-nav-btn" title="Capítulo anterior">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+            </button>
+            
+            <div class="bottom-nav-info">
+                <div class="bottom-nav-book" id="bottom-current-book">Génesis</div>
+                <div class="bottom-nav-chapter" id="bottom-current-chapter">1</div>
+            </div>
+            
+            <button id="bottom-next-chapter" class="bottom-nav-btn" title="Capítulo siguiente">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Search Panel -->
+    <div id="search-panel" class="search-panel hidden">
+        <div class="search-header">
+            <input type="text" id="search-input" placeholder="Buscar en la Biblia..." autocomplete="off">
+            <button id="close-search" class="close-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div id="search-results" class="search-results">
+            <div id="search-results-content"></div>
+        </div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel hidden">
+        <div class="settings-header">
+            <h3>Configuración de Lectura</h3>
+            <button id="close-settings" class="close-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="settings-content">
+            <div class="setting-group">
+                <label class="setting-label">Tamaño del Texto</label>
+                <div class="font-size-controls">
+                    <button id="font-smaller" class="setting-btn">A</button>
+                    <input type="range" id="font-size-slider" min="12" max="24" value="16" class="slider">
+                    <button id="font-larger" class="setting-btn">A</button>
+                </div>
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">Tema</label>
+                <div class="theme-options">
+                    <button id="theme-light" class="theme-btn active" data-theme="light">Claro</button>
+                    <button id="theme-dark" class="theme-btn" data-theme="dark">Oscuro</button>
+                    <button id="theme-sepia" class="theme-btn" data-theme="sepia">Sepia</button>
+                </div>
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">Lectura en voz (TTS)</label>
+                <div class="tts-controls">
+                    <div class="tts-row">
+                        <span class="setting-sub">Voz</span>
+                        <select id="tts-voice" class="select"></select>
+                    </div>
+                    <div class="tts-row">
+                        <span class="setting-sub">Velocidad</span>
+                        <input type="range" id="tts-rate" min="0.8" max="1.2" step="0.05" value="1.0" class="slider">
+                    </div>
+                    <div class="tts-row">
+                        <span class="setting-sub">Tono</span>
+                        <input type="range" id="tts-pitch" min="0.5" max="2.0" step="0.05" value="1.0" class="slider">
+                    </div>
+                    <div class="tts-row">
+                        <span class="setting-sub">Volumen</span>
+                        <input type="range" id="tts-volume" min="0.0" max="1.0" step="0.05" value="1.0" class="slider">
+                    </div>
+                    <div class="tts-row">
+                        <label class="checkbox">
+                            <input type="checkbox" id="tts-prerecorded">
+                            Usar audio pregrabado si está disponible
+                        </label>
+                    </div>
+                    <div class="tts-row">
+                        <span class="setting-sub">URL base de audio (opcional)</span>
+                        <input type="text" id="tts-audio-base" class="text-input" placeholder="https://tu-servidor/audio">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commentary Panel -->
+    <section id="commentary-panel" class="commentary-panel hidden" aria-live="polite">
+        <header class="commentary-header">
+            <h3 id="commentary-title">Comentario</h3>
+            <button id="close-commentary" class="close-btn" aria-label="Cerrar comentario">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </header>
+        <div class="commentary-body">
+            <p class="commentary-ref" id="commentary-ref"></p>
+            <div class="commentary-text" id="commentary-text"></div>
+        </div>
+    </section>
+
+    <script src="bible-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

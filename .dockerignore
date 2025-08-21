@@ -1,0 +1,22 @@
+# Node and tooling
+node_modules
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+.DS_Store
+.git
+.gitignore
+.vscode
+
+# Build and OS
+*.swp
+*.tmp
+.tmp/
+.dist/
+build/
+coverage/
+
+# Not needed in image
+README.md
+*.md
+scripts/

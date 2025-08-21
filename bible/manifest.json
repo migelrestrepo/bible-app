@@ -1,0 +1,25 @@
+
+{
+  "short_name": "Recovery Version",
+  "name": "Holy Bible Recovery Version",
+  "icons": [
+    {
+      "src": "/images/recver-app-icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/recver-app-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "description": "Recovery Version of the Holy Bible",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.rcvapp.lsm"
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+/* Sample CSS Styling for Verse reference requester */
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+form {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    height: 20px;
+    width: 500px;
+    border: 1px solid #eaeaea;
+    outline: none;
+}
+
+input:hover {
+    border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
+}
+
+input:focus {
+    border-color: #4d90fe;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+/** APP STYLES **/
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/** HEADER **/
+
+header {
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+    padding-top: 3em;
+    color: #333;
+}
+
+header h1 {
+    font-size: 1.3em;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+header h1 a {
+    color: #333;
+    text-decoration: none;
+}
+
+header h2 {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.app_ui--logo {
+    display: block;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 2em;
+}
+.rcv-nav span {
+  margin-left: 0.25rem;
+}
+.rcv-nav.index a {
+  padding: 0.5em 0.65em;
+}
+.rcv-nav.index span {
+  display: none;
+}
+.icon {
+  height: 1.025rem;
+  vertical-align: middle;
+}
+.app.submitted header {
+    font-size: 0.8em;
+    padding: 0.1em 0;
+    background-color: #a58653;
+    color: #fff;
+}
+
+.app.submitted .headings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app.submitted h1 a {
+    color: #fff;
+}
+
+.app.submitted header #logo {
+    display: none;
+}
+.rcv-nav.index {
+  display: none;
+}
+.app.submitted .rcv-nav {
+  display: none;
+}
+.app.submitted .rcv-nav.index {
+  display: block;
+}
+.app.submitted .rcv-nav.index {
+  padding: 0.25rem 0;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.app.submitted h1.Holy-Bible {
+  margin: 0.25rem 0;
+  line-height: 160%;
+}
+.app.submitted h2.Recovery-Version {
+  margin: 0.25rem 0;
+  font-size: 150%;
+  line-height: 200%;
+}
+.app.submitted h2.Recovery-Version span {
+  display: inline;
+  color: #eee6d9;
+}
+/* Small only */
+@media screen and (max-width: 34.75em) {
+  header .container {
+    width: 96%;
+  }
+  .app.submitted h1.Holy-Bible {
+    font-size: 160%;
+    white-space: nowrap;
+  }
+  .rcv-nav a { 
+    white-space: nowrap;
+  }
+  .app.submitted h2.Recovery-Version {
+    font-size: 140%;
+    line-height: 120%;
+  }
+  .app.submitted h2.Recovery-Version span {
+    display: block;
+  }
+}
+
+
+/** INPUT **/
+
+.app_ui--input {
+    padding-top: 2em;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+}
+
+.app_ui--input input {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 3px;
+    font-size: 0.9em;
+    height: 2.5em;
+}
+
+.app.submitted .app_ui--input {
+    -webkit-position: sticky;
+    position: sticky;
+    top: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    box-shadow: 0px 1px 6px #d3d3d3;
+    background-color: #ffffff;
+}
+.app_ui--input span {
+  font-size: 0.9rem;
+  color: #777;
+}
+.app_ui--input form {
+  margin: 0 auto;
+  max-width: 600px;
+}
+.app.submitted .app_ui--input form {
+    max-width: none;
+}
+
+
+/** OUTPUT **/
+
+.app_ui--output.hidden {
+    display: none;
+}
+
+.app_ui--message {
+  color: #444;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgba(243,151,4,0.25);
+  border: 1px solid rgb(243,151,4);
+  border-radius: 3px;
+}
+
+.app_ui--copyr {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.app_ui--output {
+    color: #333;
+}
+
+.ref {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/** RESPONSIVE **/
+
+@media (min-width: 1024px) {
+    .container {
+        width: 921px;
+    }
+}
